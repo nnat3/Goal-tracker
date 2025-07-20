@@ -15,12 +15,12 @@ function DepositSavings({ goal, setGoals }) {
             body: JSON.stringify({ savedAmount: newAmount })
         })
         .then((res) => res.json())
-        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  updatedGoal.id ? updatedGoal : g)) 
+        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  chosenId ? updated : g)) 
         setAmount('')
         setChosenId('')
         })
     }
-    
+
     return (
         <>
         <form onSubmit={handleDeposit}>
