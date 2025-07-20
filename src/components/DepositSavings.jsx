@@ -33,3 +33,4 @@ function DepositSavings({ goal, setGoals }) {
         </>
     )
 }
+export default DepositSavings;
