@@ -7,8 +7,8 @@ function DepositSavings({ goals, setGoals }) {
     const handleDeposit = (e) => {
         e.preventDefault();
 
-        const goalToUpdate = goal.find((g) => g.id === chosenId)
-        const newAmount = goal.savedAmount + parseFloat(amount)
+        const goalToUpdate = goals.find((g) => g.id === chosenId)
+        const newAmount = goals.savedAmount + parseFloat(amount)
 
         fetch(`http://localhost:3000/goals/${chosenId}`, {
             method: 'PATCH',
