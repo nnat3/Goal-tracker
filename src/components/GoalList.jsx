@@ -9,7 +9,7 @@ function GoalList({ goals, setGoals}) {
   return (
     <div>
       {goals.map(goal => (
-        <GoalItem key={goal.id} goal={goal} onDelete={handleDelete} />
+        <GoalCard key={goal.id} goal={goal} onDelete={handleDelete} />
       ))}
     </div>
   );

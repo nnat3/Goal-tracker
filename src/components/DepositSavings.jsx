@@ -16,7 +16,7 @@ function DepositSavings({ goals, setGoals }) {
             body: JSON.stringify({ savedAmount: newAmount })
         })
         .then((res) => res.json())
-        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  chosenId ? updatedGoal : g)) 
+        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  parseInt(chosenId) ? updatedGoal : g)) 
         setAmount('')
         setChosenId('')
         })
@@ -27,6 +27,11 @@ function DepositSavings({ goals, setGoals }) {
         <form onSubmit={handleDeposit}>
             <select value={chosenId} onChange={(e) => setChosenId(e.target.value)} required>
             <option value="">Pick a goal</option>
+             {goals.map((g) => (
+          <option key={g.id} value={g.id}>
+            {g.name}
+          </option>
+))}
             </select>
             <input type="number" placeholder='Deposit Amount' value={amount} onChange={(e) => setAmount(e.target.value)} required />
             <button type="submit">Deposit</button>
