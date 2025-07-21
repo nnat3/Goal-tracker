@@ -1,12 +1,13 @@
 import { useState , React } from 'react'
 
-function DepositSavings({ goal, setGoals }) {
+function DepositSavings({ goals, setGoals }) {
     const [amount, setAmount] = useState('');
     const [chosenId, setChosenId] = useState('')
 
     const handleDeposit = (e) => {
         e.preventDefault();
-        const goals = goals.find((g) => g.id === chosenId)
+
+        const goalToUpdate = goal.find((g) => g.id === chosenId)
         const newAmount = goal.savedAmount + parseFloat(amount)
 
         fetch(`http://localhost:3000/goals/${chosenId}`, {
@@ -15,7 +16,7 @@ function DepositSavings({ goal, setGoals }) {
             body: JSON.stringify({ savedAmount: newAmount })
         })
         .then((res) => res.json())
-        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  chosenId ? updated : g)) 
+        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  chosenId ? updatedGoal : g)) 
         setAmount('')
         setChosenId('')
         })
@@ -24,7 +25,7 @@ function DepositSavings({ goal, setGoals }) {
     return (
         <>
         <form onSubmit={handleDeposit}>
-            <select value={chosenId}>
+            <select value={chosenId} onChange={(e) => setChosenId(e.target.value)} required>
             <option value="">Pick a goal</option>
             </select>
             <input type="number" placeholder='Deposit Amount' value={amount} onChange={(e) => setAmount(e.target.value)} required />
