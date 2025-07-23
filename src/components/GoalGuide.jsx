@@ -3,7 +3,7 @@ function Overview({ goals }) {
   const completedGoals = goals.filter(goal => goal.savedAmount >= goal.targetAmount).length;
 
   // Add up all the saved amounts
-  const totalSaved = goals.reduce((total, goal) => total + goal.savedAmount, 0);
+  const totalSaved = goals.reduce((total, goal) => total + goal.savedAmount,0);
 
   // Find goals that are due within 30 days and not yet complete
   const dueSoon = goals.filter(goal => {
