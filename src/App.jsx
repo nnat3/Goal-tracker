@@ -6,7 +6,7 @@ function App() {
   const [goals, setGoals] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/goals')
+    fetch('https://goal-tracker-4-virm.onrender.com/goals')
       .then(res => res.json())
       .then(data => setGoals(data));
   }, []);
