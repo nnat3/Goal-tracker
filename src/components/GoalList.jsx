@@ -7,7 +7,7 @@ function GoalList({ goals, setGoals}) {
   };
 
   return (
-    <div>
+    <div className="goal-container">
       {goals.map(goal => (
         <GoalCard key={goal.id} goal={goal} onDelete={handleDelete} />
       ))}

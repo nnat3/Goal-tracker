@@ -8,6 +8,10 @@ function DepositSavings({ goals, setGoals }) {
         e.preventDefault();
 
         const goalToUpdate = goals.find((g) => g.id === parseInt(chosenId))
+         if (!goalToUpdate) {
+    alert("Goal not found. Please try again.");
+    return;
+  }
         const newAmount = goalToUpdate.savedAmount+ parseFloat(amount)
 
         fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${chosenId}`, {
