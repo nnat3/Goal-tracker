@@ -23,7 +23,12 @@ function AddForm({ setGoals }) {
             body: JSON.stringify(formData)
         })      
         .then(res=> res.json())
-        .then(newGoal => setGoals(prev => [...prev, newGoal]))
+        .then(() => {
+
+      fetch('https://goal-tracker-api-lln2.onrender.com/goals')
+        .then(res => res.json())
+        .then(data => setGoals(data));
+        })
         setFormData({
             name: '',
             targetAmount: '',
@@ -35,7 +40,7 @@ function AddForm({ setGoals }) {
     };
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input name="name" placeholder='Goal Name' value={formData.name} onChange={handleChange} required />
                 <input name="targetAmount" type="number" placeholder='Target Amount' value={formData.targetAmount} onChange={handleChange} required />
                 <input name="category" placeholder='Category' value={formData.category} onChange={handleChange}required />
