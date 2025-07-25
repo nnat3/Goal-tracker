@@ -7,7 +7,7 @@ function DepositSavings({ goals, setGoals }) {
     const handleDeposit = (e) => {
         e.preventDefault();
 
-        const goalToUpdate = goals.find((g) => g.id === chosenId)
+        const goalToUpdate = goals.find((g) => g.id === parseInt(chosenId))
         const newAmount = goalToUpdate.savedAmount+ parseFloat(amount)
 
         fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${chosenId}`, {
