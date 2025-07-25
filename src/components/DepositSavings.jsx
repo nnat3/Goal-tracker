@@ -1,6 +1,8 @@
 import { useState , React } from 'react'
 
 function DepositSavings({ goals, setGoals }) {
+    console.log("DepositSavings component rendered");
+
     const [amount, setAmount] = useState('');
     const [chosenId, setChosenId] = useState('')
 
@@ -41,7 +43,7 @@ console.log("New saved amount:", newAmount);
 ))}
             </select>
             <input type="number" placeholder='Deposit Amount' value={amount} onChange={(e) => setAmount(e.target.value)} required />
-            <button type="submit">Deposit</button>
+            <button type="submit"  onClick={() => console.log("clicked")}>Deposit</button>
         </form>
         </>
     )
