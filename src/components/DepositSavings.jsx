@@ -8,7 +8,7 @@ function DepositSavings({ goals, setGoals }) {
         e.preventDefault();
 
         const goalToUpdate = goals.find((g) => g.id === chosenId)
-        const newAmount = goals.savedAmount + parseFloat(amount)
+        const newAmount = goalToUpdate.savedAmount+ parseFloat(amount)
 
         fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${chosenId}`, {
             method: 'PATCH',
