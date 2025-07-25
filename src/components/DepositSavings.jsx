@@ -32,7 +32,7 @@ function DepositSavings({ goals, setGoals }) {
             <select value={chosenId} onChange={(e) => setChosenId(e.target.value)} required>
             <option value="">Pick a goal</option>
              {goals.map((g) => (
-          <option key={g.id} value={g.id}>
+          <option key={g.id} value={g.id.toString()}>
             {g.name}
           </option>
 ))}
