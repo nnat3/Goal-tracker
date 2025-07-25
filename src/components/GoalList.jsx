@@ -2,7 +2,7 @@ import GoalCard from "./GoalCard";
 
 function GoalList({ goals, setGoals}) {
   const handleDelete = id => {
-    fetch(`https://goal-tracker-4-virm.onrender.com/goals/${id}`, { method: 'DELETE' })
+    fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${id}`, { method: 'DELETE' })
       .then(() => setGoals(goals.filter(goal => goal.id !== id)));
   };
 

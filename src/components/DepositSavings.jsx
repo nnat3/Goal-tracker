@@ -10,7 +10,7 @@ function DepositSavings({ goals, setGoals }) {
         const goalToUpdate = goals.find((g) => g.id === chosenId)
         const newAmount = goals.savedAmount + parseFloat(amount)
 
-        fetch(`http://localhost:3000/goals/${chosenId}`, {
+        fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${chosenId}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ savedAmount: newAmount })

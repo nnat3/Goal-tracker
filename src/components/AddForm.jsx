@@ -17,7 +17,7 @@ function AddForm({ setGoals }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/goals', {
+        fetch('https://goal-tracker-api-lln2.onrender.com/goals', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
