@@ -9,7 +9,7 @@ function DepositSavings({ goals, setGoals }) {
     const handleDeposit = (e) => {
         e.preventDefault();
 
-        const goalToUpdate = goals.find((g) => g.id === Number (chosenId))
+        const goalToUpdate = goals.find((g) => g.id === (chosenId))
          if (!goalToUpdate) {
     console.error("Goal not found with ID:", chosenId);
     return;
@@ -25,7 +25,7 @@ console.log("New saved amount:", newAmount);
             body: JSON.stringify({ savedAmount: newAmount })
         })
         .then((res) => res.json())
-        .then((updatedGoal) => { setGoals(goals.map(g => g.id ===  Number(chosenId) ? updatedGoal : g)) 
+        .then((updatedGoal) => { setGoals(goals.map(g => g.id === (chosenId) ? updatedGoal : g)) 
         setAmount('')
         setChosenId('')
         })
