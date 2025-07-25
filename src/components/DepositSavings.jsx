@@ -13,6 +13,9 @@ function DepositSavings({ goals, setGoals }) {
     return;
   }
         const newAmount = goalToUpdate.savedAmount+ parseFloat(amount)
+console.log("Chosen ID:", chosenId);
+console.log("Goal to update:", goalToUpdate);
+console.log("New saved amount:", newAmount);
 
         fetch(`https://goal-tracker-api-lln2.onrender.com/goals/${chosenId}`, {
             method: 'PATCH',
